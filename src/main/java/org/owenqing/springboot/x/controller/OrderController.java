@@ -21,6 +21,7 @@ public class OrderController {
         val orderInfo = orderService.queryOrderById(orderId);
         // response
         QueryOrderResp response = new QueryOrderResp();
+        if (orderInfo == null) return response;
         response.setId(orderInfo.getId());
         response.setPrice(orderInfo.getPrice());
         response.setCategory(orderInfo.getCategory());
