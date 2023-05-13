@@ -13,3 +13,8 @@ mybatis:
   type-aliases-package: org.owenqing.springboot.x.entity
   configuration:
     map-underscore-to-camel-case: true
+
+foo-kafka:
+  servers:
+    - 172.18.96.231:9092
+  group_id: foo_consumer
