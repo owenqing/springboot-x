@@ -49,6 +49,16 @@
             <artifactId>kafka-clients</artifactId>
             <version>2.7.2</version>
         </dependency>
+
+        <!-- 监控相关 Actuator Prometheus -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

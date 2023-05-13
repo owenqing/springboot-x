@@ -16,5 +16,24 @@ mybatis:
 
 foo-kafka:
   servers:
-    - 172.18.96.231:9092
+    - 192.168.0.101:9092
   group_id: foo_consumer
+
+# 监控配置
+#  http://localhost:9001/actuator/prometheus
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus  # 打开 Prometheus 的 Web 访问 Path
+  metrics:
+    # 下面选项建议打开，以监控 http 请求的 P99/P95 等，具体的时间分布可以根据实际情况设置
+    distribution:
+      sla:
+        http:
+          server:
+            requests: 1ms,5ms,10ms,50ms,100ms,200ms,500ms,1s,5s
+    # 在 Prometheus 中添加特别的 Labels
+    tags:
+      # 必须加上对应的应用名，因为需要以应用的维度来查看对应的监控
+      application: springboot-x
